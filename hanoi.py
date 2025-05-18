@@ -16,6 +16,7 @@ class Hanoi(Scene):
         self.draw_stacks()
         self.init_blocks()
         self.move_block(0, 2)
+        self.move_block(0, 2)
         self.wait()
     
     def draw_stacks(self):
@@ -58,6 +59,8 @@ class Hanoi(Scene):
             Transform(block, block.copy().to_edge(DOWN).shift(UP * self.block_height * len(self.stacks[to_stack]))),
             run_time=0.5
         )
+
+        self.stacks[to_stack].append(self.stacks[from_stack].pop())
 
 def error(message):
     print(message)
